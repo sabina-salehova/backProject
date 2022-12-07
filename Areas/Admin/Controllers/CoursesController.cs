@@ -154,8 +154,7 @@ namespace backProject.Areas.Admin.Controllers
                 StudentCount = existCourse.StudentCount,
                 Fee = existCourse.Fee,
                 Categories = modelForCategories.Categories,
-                CategoryId = existCourse.CategoryId,
-                AllCategories=modelForCategories.AllCategories
+                CategoryId = existCourse.CategoryId
             };
 
             if (!ModelState.IsValid)

@@ -1,3 +1,4 @@
+using backProject.Areas.Admin.Services;
 using backProject.DAL;
 using backProject.DAL.Entities;
 using backProject.Data;
@@ -39,6 +40,9 @@ namespace backProject
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
             builder.Services.Configure<AdminUser>(builder.Configuration.GetSection("AdminUser"));
+
+            builder.Services.AddScoped<CategoryService>();
+            //builder.Services.AddScoped<SpeakerService>();
 
             Constants.RootPath = builder.Environment.WebRootPath;
             Constants.SliderPath = Path.Combine(Constants.RootPath, "assets", "img", "slider");

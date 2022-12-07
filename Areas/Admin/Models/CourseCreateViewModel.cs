@@ -1,5 +1,6 @@
 ﻿using backProject.DAL.Entities;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 
 namespace backProject.Areas.Admin.Models
 {
@@ -11,7 +12,7 @@ namespace backProject.Areas.Admin.Models
         public string HowToApply { get; set; }
         public string Certification { get; set; }
         public string ClassDuration { get; set; }
-        public IFormFile Image { get; set; }
+        public IFormFile Image { get; set; }        
         public DateTime Starts { get; set; }
         public string Duration { get; set; }
         public string SkillLevel { get; set; }
