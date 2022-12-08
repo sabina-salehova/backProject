@@ -13,7 +13,7 @@ namespace backProject.Areas.Admin.Services
         {
             _dbContext = dbContext;
         }
-        public async Task<EventCreateViewModel> GetCategories()
+        public async Task<EventCreateViewModel> GetSpeakers()
         {
             var speakers = await _dbContext.Speakers.Where(c => !c.IsDeleted).Include(x => x.EventSpeakers).ThenInclude(x => x.Event).ToListAsync();
 

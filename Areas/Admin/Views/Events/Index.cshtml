@@ -25,6 +25,7 @@
                                     <td>@eventItem.Venue</td>
                                     <td>
                                         <a class="btn btn-primary" asp-action="details" asp-route-id="@eventItem.Id">Details</a>
+                                        <a class="btn btn-success" asp-action="update" asp-route-id="@eventItem.Id">Update</a>
                                         <div class="d-inline-block">
                                             <form class="forms-sample" method="post" asp-action="delete" asp-route-id="@eventItem.Id">
                                                 <button type="submit" class="btn btn-danger mr-2">Delete</button>

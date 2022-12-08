@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace backProject.Areas.Admin.Models
 {
-    public class EventCreateViewModel
+    public class EventUpdateViewModel
     {
         public string Name { get; set; }
         public string Content { get; set; }
@@ -15,9 +15,9 @@ namespace backProject.Areas.Admin.Models
 
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd HH:mm}")]
         public DateTime EndTime { get; set; }
-        public IFormFile Image { get; set; }
+        public string ImageUrl { get; set; } = String.Empty;
+        public IFormFile? Image { get; set; }
         public List<int>? SpeakersIds { get; set; }
         public List<SelectListItem>? Speakers { get; set; }
-        public List<Speaker>? AllSpekaers { get; set; }
     }
 }
