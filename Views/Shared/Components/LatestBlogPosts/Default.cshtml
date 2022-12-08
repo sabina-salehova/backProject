@@ -1,0 +1,27 @@
+﻿@{
+    List<Blog> blogs = Model;
+}
+
+@if (blogs.Count > 0)
+{    
+    <div class="single-blog-widget mb-50">
+        <h3>latest blog post</h3>
+        @foreach (var blog in blogs)
+        {
+            <div class="single-post mb-30">
+                <div class="single-post-img">
+                    <a asp-controller="Blogs" asp-action="Details" asp-route-id="@blog.Id">
+                        <img src="~/assets/img/blog/@blog.ImageName" style="width:100px; height:80px;" alt="post">
+                        <div class="blog-hover">
+                            <i class="fa fa-link"></i>
+                        </div>
+                    </a>
+                </div>
+                <div class="single-post-content">
+                    <h4><a asp-controller="Blogs" asp-action="Details" asp-route-id="@blog.Id">@blog.Name</a></h4>
+                    <p>By @blog.Writer  /  @blog.Date.ToString(" MMMM d, yyyy")</p>
+                </div>
+            </div>
+        }
+    </div>
+}

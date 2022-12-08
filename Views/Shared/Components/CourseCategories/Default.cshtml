@@ -1,0 +1,27 @@
+﻿@{
+    CategoryViewModel cvm = Model;
+    IEnumerable<IGrouping<int, Course>> groupByCategoryCourses = cvm.groupByCategoryCourses;
+    List<Category> categories = cvm.categories;
+}
+
+
+@if(categories.Count>0 && groupByCategoryCourses.Count() > 0)
+{
+    <div class="single-blog-widget mb-47">
+        <h3>course categories</h3>
+        <ul>
+
+            @foreach (var groupCourse in groupByCategoryCourses)
+            {
+                @foreach (var category in categories)
+                {
+                    if (groupCourse.Key == category.Id)
+                    {
+                         <li><a asp-controller="courses" asp-action="index">@category.Name (@groupCourse.ToList().Count)</a></li>
+                    }
+                }
+
+            }
+        </ul>
+    </div>
+}

@@ -18,65 +18,6 @@ namespace backProject.Controllers
             _roleManager = roleManager;
         }
 
-        //public IActionResult Register()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Register(RegisterViewModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View();
-        //    }
-
-        //    var existUser = await _userManager.FindByNameAsync(model.Username);
-
-        //    if (existUser != null)
-        //    {
-        //        ModelState.AddModelError("", "Bele username movcuddur");
-        //        return View();
-        //    }
-
-        //    var user = new User
-        //    {
-        //        Firstname = model.Firstname,
-        //        Lastname = model.Lastname,
-        //        Email = model.Email,
-        //        UserName = model.Username
-        //    };
-
-        //    var result = await _userManager.CreateAsync(user, model.Password);
-
-        //    if (!result.Succeeded)
-        //    {
-        //        foreach (var error in result.Errors)
-        //        {
-        //            ModelState.AddModelError("", error.Description);
-        //        }
-
-        //        return View();
-        //    }
-
-        //    var createdUser = await _userManager.FindByNameAsync(model.Username);
-
-        //    result = await _userManager.AddToRoleAsync(createdUser, Constants.UserRole);
-
-        //    if (!result.Succeeded)
-        //    {
-        //        foreach (var error in result.Errors)
-        //        {
-        //            ModelState.AddModelError("", error.Description);
-        //        }
-
-        //        return View();
-        //    }
-
-        //    return RedirectToAction(nameof(Login));
-        //}
-
         public IActionResult Login(string? returnUrl)
         {
             return View(new LoginViewModel { ReturnUrl = returnUrl });
@@ -98,7 +39,7 @@ namespace backProject.Controllers
                 return View(new LoginViewModel { ReturnUrl = model.ReturnUrl });
             }
 
-            var signResult = await _signInManager.PasswordSignInAsync(existUser, model.Password, model.RememberMe, false);
+            var signResult = await _signInManager.PasswordSignInAsync(existUser, model.Password, false, false);
 
             if (signResult.IsLockedOut)
             {

@@ -46,7 +46,8 @@ namespace backProject.Areas.Admin.Controllers
 
             var viewModel = new BlogCreateViewModel
             {
-                Categories = modelForCategories.Categories
+                Categories = modelForCategories.Categories,
+                AllCategories= modelForCategories.AllCategories
             };
 
             if (!ModelState.IsValid)
