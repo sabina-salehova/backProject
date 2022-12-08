@@ -6,6 +6,6 @@ namespace backProject.Areas.Admin.Models
     {
         public List<Course>? AllCourses { get; set; }
         public List<Category>? Allcategories { get; set; }
-        //public List<Course> AllCourses { get; set; }
+        public List<Blog>? AllBlogs { get; set; }
     }
 }

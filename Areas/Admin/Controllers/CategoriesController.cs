@@ -20,9 +20,12 @@ namespace backProject.Areas.Admin.Controllers
         {
             List<Category> categories = await _dbContext.Categories.Where(s => !s.IsDeleted).ToListAsync();
             List<Course> courses = await _dbContext.Courses.Where(s => !s.IsDeleted).ToListAsync();
+            List<Blog> blogs = await _dbContext.Blogs.Where(s => !s.IsDeleted).ToListAsync();
+
             return View(new CategoryDeleteViewModel { 
                 AllCourses=courses,
-               Allcategories=categories
+                Allcategories=categories,
+                AllBlogs=blogs
             });
         }
 

@@ -42,7 +42,7 @@ namespace backProject.Areas.Admin.Controllers
             if (!model.Image.IsImage())
             {
                 ModelState.AddModelError("", "Sekil secmelisiz");
-                return View(model);
+                return View();
             }
 
             if (!model.Image.IsAllowedSize(10))
@@ -193,7 +193,7 @@ namespace backProject.Areas.Admin.Controllers
                 || model.DesignProgress > 100 || model.CommunicationProgress > 100 || model.InnovationProgress > 100)
             {
                 ModelState.AddModelError("", "progress 100-e qeder daxil edilmelidir");
-                return View(model);
+                return View(teacherModel);
             }
 
             if (model.LanguageProgress < 0 || model.TeamLeaderProgress < 0
@@ -201,7 +201,7 @@ namespace backProject.Areas.Admin.Controllers
                 || model.DesignProgress < 0 || model.CommunicationProgress < 0 || model.InnovationProgress < 0)
             {
                 ModelState.AddModelError("", "progress 0-dan kicik ola bilmez");
-                return View(model);
+                return View(teacherModel);
             }
 
             if (!ModelState.IsValid)

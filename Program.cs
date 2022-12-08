@@ -42,7 +42,7 @@ namespace backProject
             builder.Services.Configure<AdminUser>(builder.Configuration.GetSection("AdminUser"));
 
             builder.Services.AddScoped<CategoryService>();
-            //builder.Services.AddScoped<SpeakerService>();
+            builder.Services.AddScoped<SpeakerService>();
 
             Constants.RootPath = builder.Environment.WebRootPath;
             Constants.SliderPath = Path.Combine(Constants.RootPath, "assets", "img", "slider");
